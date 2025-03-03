@@ -36,6 +36,44 @@ struct PantallaAgenda: View {
         }
         .background(Color.green)
         
+        HStack(alignment: VerticalAlignment.center, spacing: 25) {
+            ZStack{//boton izquierdo
+                Circle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .tint(Color.red)
+                    .foregroundColor(Color.purple)
+                Rectangle()
+                    .frame(width: 65, height: 65)
+                    .foregroundColor(Color.cyan)
+                Image(systemName: "plus")
+                    .background(Color.red)
+                
+            }
+            .padding(15)
+            .onTapGesture {
+                print("Falta implementar esta parte")
+            }
+            Spacer()
+            ZStack{//Boton derecho
+                Circle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .tint(Color.red)
+                    .foregroundColor(Color.purple)
+                Rectangle()
+                    .frame(width: 65, height: 65)
+                    .foregroundColor(Color.cyan)
+                Image(systemName: "shuffle")
+                    .background(Color.red)
+                
+            }
+            .padding(15)
+            .onTapGesture {
+                print("Lanzar un intent para iniciar la llamada")
+            }
+            
+            
+        }
+        
         
     }
 }
