@@ -14,7 +14,7 @@ struct contacto_prevista: View {
     var contacroAMostrar: ContactoAgenda
     var alPulsar: () -> Void = {print("hol")} //guarda una funcion sin pase de parametros y que devuelva nada
     
-    let esquinaRedondeada = CGSize(width: 25, height: 25)
+    let esquinaRedondeada = CGSize(width: 70, height: 70)
     
     var body: some View {
         HStack(alignment: VerticalAlignment.center){
@@ -23,9 +23,9 @@ struct contacto_prevista: View {
                 Image("nombre_imagen")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 45, alignment: .center)
+                    .frame(width: 65, alignment: .center)
                     .clipShape(RoundedRectangle(cornerSize: esquinaRedondeada))
-                    .background(Color.blue)
+                    .background(Color.mint)
             }.background(Color.white)
             
             Spacer()
@@ -33,13 +33,14 @@ struct contacto_prevista: View {
             VStack(alignment: HorizontalAlignment.leading){//Alineamiento a la izquierda
                 Text(contacroAMostrar.nombre)
                 Text(contacroAMostrar.telefono)
-            }.background(Color.gray)
-                .frame(width: 150)
+            }.background(Color.clear)
+                .frame(width: 150, height: 70)
             Spacer()
             
         }
-        .frame(width: 250)
-        .background(Color.red)
+        .frame(width: 250, height: 80)
+        .background(Color.mint)
+        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 40, height: 50)))
         .onTapGesture {
             alPulsar()
         }

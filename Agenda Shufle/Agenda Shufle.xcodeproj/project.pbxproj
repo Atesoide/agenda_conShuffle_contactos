@@ -62,13 +62,13 @@
 		FBD5E8012D6F797A00AD4F47 /* Agenda Shufle */ = {
 			isa = PBXGroup;
 			children = (
+				FBD5E8102D6F7C1000AD4F47 /* PantallaAgenda.swift */,
 				FBE3D2802D7618A700ADA337 /* pantallas */,
 				FBD5E8152D6F85A900AD4F47 /* modelos */,
 				FBD5E8122D6F7F5B00AD4F47 /* componentes */,
 				FBD5E8022D6F797A00AD4F47 /* Agenda_ShufleApp.swift */,
 				FBD5E8062D6F797B00AD4F47 /* Assets.xcassets */,
 				FBD5E8082D6F797B00AD4F47 /* Preview Content */,
-				FBD5E8102D6F7C1000AD4F47 /* PantallaAgenda.swift */,
 			);
 			path = "Agenda Shufle";
 			sourceTree = "<group>";
