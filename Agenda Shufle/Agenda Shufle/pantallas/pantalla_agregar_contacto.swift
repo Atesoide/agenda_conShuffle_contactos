@@ -10,6 +10,14 @@ import SwiftUI
 struct PantallaAgregarContacto: View {
     @State private var nombre: String = ""
     @State private var numeroTelefonico: String = ""
+    
+    var botonSalir: () -> Void = {
+        print("NO")
+    }
+    var botonAgregar: (_ nombre: String, _ numero: String) -> Void = {nombre, numero in
+        print("NO")
+    }
+    
     var body: some View {
         Text("Colocar la etiqueta de nombre")
         ZStack{
@@ -26,11 +34,17 @@ struct PantallaAgregarContacto: View {
             .frame(height: 45)
             .padding(10)
         
-        HStack{
+        HStack{ //Icono de agregar un contacto
             Icono(tamaño: 65, rutaIcono: "person.crop.circle.badge.plus")
+                .onTapGesture {
+                    botonAgregar(nombre, numeroTelefonico)
+                }
             Spacer()
-            Icono(tamaño: 65, rutaIcono: "return")
+            Icono(tamaño: 65, rutaIcono: "return")//Icono de salir
                 .background(nombre.isEmpty ? Color.red: Color.cyan)//condicional
+                .onTapGesture {
+                    botonSalir()
+                }
         }
         .background(Color.cyan)
         

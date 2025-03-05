@@ -21,10 +21,15 @@ struct PantallaAgenda: View {
     var largoDePantalla = UIScreen.main.bounds.width
     var anchoDePantalla = UIScreen.main.bounds.height
     
+    @State var mostrarPantallaAgregarContacto: Bool = false
+    
+    @State var contactosActuales: [ContactoAgenda] = [
+    ContactoAgenda(nombre: "Aniria Diaz", telefono: "6561234567")]
+    
     var body: some View {
         ScrollView{
             VStack(spacing: 10) {
-                ForEach(contactos){ contacto in
+                ForEach(contactosActuales){ contacto in
                     //Text("\(contacto.nombre)")
                     contacto_prevista(contacroAMostrar: contacto, alPulsar: {print("Te envia saludos \(contacto.nombre) desde la pantalla agenda")})
                 }
@@ -52,6 +57,7 @@ struct PantallaAgenda: View {
             .padding(15)
             .onTapGesture {
                 print("Falta implementar esta parte")
+                mostrarPantallaAgregarContacto.toggle()
             }
             Spacer()
             ZStack{//Boton derecho
@@ -72,7 +78,19 @@ struct PantallaAgenda: View {
             }
             
             
-        }
+        }.background(Color.orange)
+            .sheet(isPresented: $mostrarPantallaAgregarContacto){
+                PantallaAgregarContacto(
+                    botonSalir: {
+                        mostrarPantallaAgregarContacto.toggle()
+                    }, botonAgregar: {
+                        nombre, numero in
+                        let contactoNuevo = ContactoAgenda(nombre: nombre, telefono: numero)
+                        contactosActuales.append(contactoNuevo)
+                        mostrarPantallaAgregarContacto.toggle()
+
+                    })
+            }
         
         
     }
