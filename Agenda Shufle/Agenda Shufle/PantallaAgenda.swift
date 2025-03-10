@@ -16,15 +16,20 @@ var contactos = [
     ContactoAgenda(nombre: "Juan7", telefono: "12345"),
     ContactoAgenda(nombre: "Juan8", telefono: "12345"),
 ]
+enum pantallasDisponibles: String, Identifiable{
+    case pantallaAgregar, pantallaAleatorio
+    
+    var id: String {rawValue}
+}
 
 struct PantallaAgenda: View {
     var largoDePantalla = UIScreen.main.bounds.width
     var anchoDePantalla = UIScreen.main.bounds.height
     
-    @State var mostrarPantallaAgregarContacto: Bool = false
-    
     @State var contactosActuales: [ContactoAgenda] = [
-    ContactoAgenda(nombre: "Aniria Diaz", telefono: "6561234567")]
+    ContactoAgenda(nombre: "Aniria Diaz", telefono: "6561234567", imagen: "nombre_imagen")]
+    
+    @State var pantallasAMostrar: pantallasDisponibles?
     
     var body: some View {
         ScrollView{
@@ -35,63 +40,64 @@ struct PantallaAgenda: View {
                 }
                 
             }
-            .background(Color.cyan)
+            //.background(Color.cyan)
             .frame(width: largoDePantalla, alignment: Alignment/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
         }
-        .background(Color.green)
+        .background(Color.purple)
         
         HStack(alignment: VerticalAlignment.center, spacing: 25) {
             ZStack{//boton izquierdo
                 Circle()
                     .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                    .tint(Color.red)
-                    .foregroundColor(Color.purple)
-                Rectangle()
-                    .frame(width: 65, height: 65)
-                    .foregroundColor(Color.cyan)
+                    .foregroundColor(Color.pink)
                 Image(systemName: "plus")
-                    .background(Color.red)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50)
+                    .colorInvert()
                 
             }
             .padding(15)
             .onTapGesture {
-                print("Falta implementar esta parte")
-                mostrarPantallaAgregarContacto.toggle()
+                pantallasAMostrar = pantallasDisponibles.pantallaAgregar
             }
             Spacer()
             ZStack{//Boton derecho
                 Circle()
                     .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
                     .tint(Color.red)
-                    .foregroundColor(Color.purple)
-                Rectangle()
-                    .frame(width: 65, height: 65)
-                    .foregroundColor(Color.cyan)
+                    .foregroundColor(Color.pink)
                 Image(systemName: "shuffle")
-                    .background(Color.red)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50)
+                    .colorInvert()
                 
             }
             .padding(15)
             .onTapGesture {
+                pantallasAMostrar = pantallasDisponibles.pantallaAleatorio
                 print("Lanzar un intent para iniciar la llamada")
             }
             
             
         }.background(Color.orange)
-            .sheet(isPresented: $mostrarPantallaAgregarContacto){
-                PantallaAgregarContacto(
-                    botonSalir: {
-                        mostrarPantallaAgregarContacto.toggle()
-                    }, botonAgregar: {
-                        nombre, numero in
-                        let contactoNuevo = ContactoAgenda(nombre: nombre, telefono: numero)
-                        contactosActuales.append(contactoNuevo)
-                        mostrarPantallaAgregarContacto.toggle()
+            .sheet(item: $pantallasAMostrar){ pantalla in
+                switch(pantalla){
+                case .pantallaAgregar:
+                    PantallaAgregarContacto(
+                        botonSalir: {
+                        }, botonAgregar: {
+                            nombre, numero, imagen in
+                            let contactoNuevo = ContactoAgenda(nombre: nombre, telefono: numero, imagen: imagen)
+                            contactosActuales.append(contactoNuevo)
 
-                    })
+                        })
+                case .pantallaAleatorio:
+                    pantalla_del_ganador(contactoAMolestar: contactosActuales.randomElement() ?? contactosActuales[0])
+                }
             }
-        
         
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-var contactoAlterno = ContactoAgenda(nombre: "Telefoncio", telefono: "6561234567")
+var contactoAlterno = ContactoAgenda(nombre: "Telefoncio", telefono: "6561234567", imagen: "miku2")
 let esquinaRedondeada = CGSize(width: 100, height: 100)
 
 struct pantalla_del_ganador: View {
@@ -18,7 +18,7 @@ struct pantalla_del_ganador: View {
                 .frame(width: 200)
                 .tint(Color.red)
                 .foregroundColor(Color.purple)
-            Image("nombre_imagen")
+            Image(contactoAlterno.imagen)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 170)

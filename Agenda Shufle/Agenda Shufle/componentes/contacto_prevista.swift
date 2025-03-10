@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let contactoPruebas = ContactoAgenda(nombre: "Juan4336534564", telefono: "12345")
+let contactoPruebas = ContactoAgenda(nombre: "Juan4336534564", telefono: "12345", imagen: "miku2")
 
 
 struct contacto_prevista: View {
@@ -20,7 +20,7 @@ struct contacto_prevista: View {
         HStack(alignment: VerticalAlignment.center){
             Spacer()
             VStack{
-                Image("nombre_imagen")
+                Image(contacroAMostrar.imagen)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 65, alignment: .center)

@@ -10,11 +10,12 @@ import SwiftUI
 struct PantallaAgregarContacto: View {
     @State private var nombre: String = ""
     @State private var numeroTelefonico: String = ""
+    @State private var imagenSeleccionada: String = "Imagen"
     
     var botonSalir: () -> Void = {
         print("NO")
     }
-    var botonAgregar: (_ nombre: String, _ numero: String) -> Void = {nombre, numero in
+    var botonAgregar: (_ nombre: String, _ numero: String, _ imagen: String) -> Void = {nombre, numero, imagen in
         print("NO")
     }
     
@@ -37,7 +38,7 @@ struct PantallaAgregarContacto: View {
         HStack{ //Icono de agregar un contacto
             Icono(tamaño: 65, rutaIcono: "person.crop.circle.badge.plus")
                 .onTapGesture {
-                    botonAgregar(nombre, numeroTelefonico)
+                    botonAgregar(nombre, numeroTelefonico, imagenSeleccionada)
                 }
             Spacer()
             Icono(tamaño: 65, rutaIcono: "return")//Icono de salir
@@ -48,7 +49,24 @@ struct PantallaAgregarContacto: View {
         }
         .background(Color.cyan)
         
+        HStack{
+            Image("nombre_imagen")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 75)
+                .onTapGesture {
+                    imagenSeleccionada = "nombre_imagen"
+                }
+            Image("miku2")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 75)
+                .onTapGesture {
+                    imagenSeleccionada = "miku2"
+                }
+        }
     }
+    
 }
 
 #Preview {
