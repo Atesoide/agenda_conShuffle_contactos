@@ -41,9 +41,9 @@ struct contacto_prevista: View {
         .frame(width: 250, height: 80)
         .background(Color.mint)
         .clipShape(RoundedRectangle(cornerSize: CGSize(width: 40, height: 50)))
-        .onTapGesture {
-            alPulsar()
-        }
+        //.onTapGesture {
+          //  alPulsar()
+        //}
         
     }
 }

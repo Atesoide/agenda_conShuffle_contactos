@@ -64,6 +64,13 @@ struct PantallaAgregarContacto: View {
                 .onTapGesture {
                     imagenSeleccionada = "miku2"
                 }
+            Image("miku3")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 75)
+                .onTapGesture {
+                    imagenSeleccionada = "miku3"
+                }
         }
     }
     

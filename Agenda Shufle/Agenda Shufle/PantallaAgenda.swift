@@ -27,24 +27,35 @@ struct PantallaAgenda: View {
     var anchoDePantalla = UIScreen.main.bounds.height
     
     @State var contactosActuales: [ContactoAgenda] = [
-    ContactoAgenda(nombre: "Aniria Diaz", telefono: "6561234567", imagen: "nombre_imagen")]
+    ContactoAgenda(nombre: "Aniria Diaz", telefono: "6561234567", imagen: "nombre_imagen"),
+    ContactoAgenda(nombre: "Angel Alonso", telefono: "6567654321", imagen: "miku2"),
+    ContactoAgenda(nombre: "Hola mundo", telefono: "6568934204", imagen: "miku3")]
     
     @State var pantallasAMostrar: pantallasDisponibles?
     
     var body: some View {
-        ScrollView{
-            VStack(spacing: 10) {
-                ForEach(contactosActuales){ contacto in
-                    //Text("\(contacto.nombre)")
-                    contacto_prevista(contacroAMostrar: contacto, alPulsar: {print("Te envia saludos \(contacto.nombre) desde la pantalla agenda")})
+        NavigationStack{
+            ScrollView{
+                VStack(spacing: 10) {
+                    ForEach(contactosActuales){ contacto in
+                        NavigationLink{
+                            contacto_prevista(contacroAMostrar: contacto)
+                        } label: {
+                            contacto_prevista(contacroAMostrar: contacto)
+                        }
+                        .tint(Color.black)
+                        //Text("\(contacto.nombre)")
+                        //contacto_prevista(contacroAMostrar: contacto, alPulsar: {print("Te envia saludos \(contacto.nombre) desde la pantalla agenda")})
+                    }
+                    
                 }
+                //.background(Color.cyan)
+                .frame(width: largoDePantalla, alignment: Alignment/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
             }
-            //.background(Color.cyan)
-            .frame(width: largoDePantalla, alignment: Alignment/*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
+            .background(Color.white)
         }
-        .background(Color.purple)
+        
         
         HStack(alignment: VerticalAlignment.center, spacing: 25) {
             ZStack{//boton izquierdo
