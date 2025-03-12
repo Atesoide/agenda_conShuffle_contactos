@@ -16,6 +16,7 @@ var contactos = [
     ContactoAgenda(nombre: "Juan7", telefono: "12345"),
     ContactoAgenda(nombre: "Juan8", telefono: "12345"),
 ]
+var contactoSeleccionado: Bool = false
 enum pantallasDisponibles: String, Identifiable{
     case pantallaAgregar, pantallaAleatorio
     
@@ -37,15 +38,13 @@ struct PantallaAgenda: View {
         NavigationStack{
             ScrollView{
                 VStack(spacing: 10) {
-                    ForEach(contactosActuales){ contacto in
+                    ForEach(contactosActuales){ contacto in//Muestra los contactos del arreglo de contactos actuales
                         NavigationLink{
-                            contacto_prevista(contacroAMostrar: contacto)
+                            Informacion_de_contacto(contacto: contacto)
                         } label: {
-                            contacto_prevista(contacroAMostrar: contacto)
+                            Contacto_prevista(contacroAMostrar: contacto)
                         }
                         .tint(Color.black)
-                        //Text("\(contacto.nombre)")
-                        //contacto_prevista(contacroAMostrar: contacto, alPulsar: {print("Te envia saludos \(contacto.nombre) desde la pantalla agenda")})
                     }
                     
                 }
@@ -106,7 +105,7 @@ struct PantallaAgenda: View {
 
                         })
                 case .pantallaAleatorio:
-                    pantalla_del_ganador(contactoAMolestar: contactosActuales.randomElement() ?? contactosActuales[0])
+                    Pantalla_del_ganador(contactoAMolestar: contactosActuales.randomElement() ?? contactosActuales[0])
                 }
             }
         

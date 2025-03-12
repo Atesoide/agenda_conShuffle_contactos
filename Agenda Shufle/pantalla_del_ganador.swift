@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-var contactoAlterno = ContactoAgenda(nombre: "Telefoncio", telefono: "6561234567", imagen: "nombre_imagen")
-let esquinaRedondeada = CGSize(width: 100, height: 100)
+var contactoAlterno = ContactoAgenda(nombre: "Telefoncio", telefono: "6561234567", imagen: "miku2")
 
-struct pantalla_del_ganador: View {
+
+struct Pantalla_del_ganador: View {
+    let esquinaRedondeada = CGSize(width: 100, height: 100)
     var contactoAMolestar: ContactoAgenda
     var body: some View {
         ZStack{
@@ -45,5 +46,5 @@ struct pantalla_del_ganador: View {
 }
 
 #Preview {
-    pantalla_del_ganador(contactoAMolestar: contactoAlterno)
+    Pantalla_del_ganador(contactoAMolestar: contactoAlterno)
 }

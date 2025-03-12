@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2371DC2D81EA0300D774D8 /* Informacion_de_contacto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2371DB2D81EA0300D774D8 /* Informacion_de_contacto.swift */; };
 		FBBC17AD2D78BCEC00312D21 /* pantalla_del_ganador.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC17AC2D78BCEC00312D21 /* pantalla_del_ganador.swift */; };
 		FBD5E8032D6F797A00AD4F47 /* Agenda_ShufleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD5E8022D6F797A00AD4F47 /* Agenda_ShufleApp.swift */; };
 		FBD5E8072D6F797B00AD4F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBD5E8062D6F797B00AD4F47 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB2371DB2D81EA0300D774D8 /* Informacion_de_contacto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informacion_de_contacto.swift; sourceTree = "<group>"; };
 		FBBC17AC2D78BCEC00312D21 /* pantalla_del_ganador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantalla_del_ganador.swift; sourceTree = "<group>"; };
 		FBD5E7FF2D6F797A00AD4F47 /* Agenda Shufle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Agenda Shufle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBD5E8022D6F797A00AD4F47 /* Agenda_ShufleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agenda_ShufleApp.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				FBE3D2812D7618D100ADA337 /* pantalla_agregar_contacto.swift */,
+				FB2371DB2D81EA0300D774D8 /* Informacion_de_contacto.swift */,
 			);
 			path = pantallas;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				FBD5E8172D6F871600AD4F47 /* contacto_agenda.swift in Sources */,
 				FBE3D2822D7618D100ADA337 /* pantalla_agregar_contacto.swift in Sources */,
 				FBD5E8032D6F797A00AD4F47 /* Agenda_ShufleApp.swift in Sources */,
+				FB2371DC2D81EA0300D774D8 /* Informacion_de_contacto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

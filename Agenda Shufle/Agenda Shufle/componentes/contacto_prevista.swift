@@ -10,7 +10,7 @@ import SwiftUI
 let contactoPruebas = ContactoAgenda(nombre: "Juan4336534564", telefono: "12345", imagen: "miku2")
 
 
-struct contacto_prevista: View {
+struct Contacto_prevista: View {
     var contacroAMostrar: ContactoAgenda
     var alPulsar: () -> Void = {print("hol")} //guarda una funcion sin pase de parametros y que devuelva nada
     
@@ -49,5 +49,5 @@ struct contacto_prevista: View {
 }
 
 #Preview {
-    contacto_prevista(contacroAMostrar: contactoPruebas)
+    Contacto_prevista(contacroAMostrar: contactoPruebas)
 }
