@@ -34,13 +34,13 @@ struct Informacion_de_contacto: View {
                     //.padding(10)
                     .bold()
                     .underline()
-                Text(contactoDefault.nombre)
+                Text(contacto.nombre)
                     .foregroundStyle(Color.white)
                 Text("TELÉFONO")
                     .foregroundStyle(Color.white)
                     .bold()
                     .underline()
-                Text(contactoDefault.telefono)
+                Text(contacto.telefono)
                     .foregroundStyle(Color.white)
             }
         }
